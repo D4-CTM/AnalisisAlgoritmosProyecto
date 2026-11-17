@@ -18,7 +18,9 @@ const (
 
 func main() {
 	r := gin.Default()
+	r.SetTrustedProxies([]string{"0.0.0.0"})
 
+	log.Println("Starting server...")
 	r.GET("/api/color-graphs", routes.ColorGraph)
 	r.GET("/api/alg/2", routes.Algorithm_2)
 	r.GET("/api/alg/3", routes.Algorithm_3)
